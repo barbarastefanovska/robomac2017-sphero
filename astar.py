@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+
+#Created on Wed Jun 21 01:15:13 2017
+
+#@author: dimitar
+
+#EXAMPLE
+import numpy as np
 """
-Created on Wed Jun 21 01:15:13 2017
-
-@author: dimitar
-
-EXAMPLE
-
 nmap = np.array([
     [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
     [1,1,1,1,1,1,1,1,1,1,1,1,0,1],
@@ -19,13 +20,10 @@ nmap = np.array([
     [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
     [1,1,1,1,1,1,1,1,1,1,1,1,0,1],
     [0,0,0,0,0,0,0,0,0,0,0,0,0,0]])
-
-path = astar.find_path(nmap, (10,13), (0,0))
-print (path)
-
 """
-
 import heapq
+
+
 
 
 def heuristic(a, b):
@@ -46,8 +44,10 @@ def find_path(array, start, goal):
     while oheap:
 
         current = heapq.heappop(oheap)[1]
+        #print(current)
+        print("I'm here now! yay!")
 
-        if current == goal:
+        if np.any(current == goal):
             data = []
             while current in came_from:
                 data.append(current)
@@ -79,3 +79,6 @@ def find_path(array, start, goal):
                 heapq.heappush(oheap, (fscore[neighbor], neighbor))
                 
     return False
+
+# path = find_path(nmap, (10,13), (0,0))
+# print (path)
